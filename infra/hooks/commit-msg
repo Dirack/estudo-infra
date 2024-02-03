@@ -1,11 +1,10 @@
 #!/bin/bash
 
-MESSAGE=(cat $2)
-COMMITFORMAT="^(feat|fix)*+$"
+MESSAGE=$(cat $1)
+COMMITFORMAT="^\[(feat|fix)\](.)+$"
 
 if ! [[ "$MESSAGE" =~ $COMMITFORMAT ]]; then
 
-	echo $@
 	echo "Commit fora do padrão"
 	exit 1
 fi
